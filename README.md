@@ -22,8 +22,6 @@ The `CodeBook.md` file describes each of the varibles, data and transformations 
 
 The main R script file that process the data. The file is structured to meet the above 5 key project goals.
 
-The output of this script is a `tidy_data_set.txt` file in the R working directory.
-
 ### .gitignore
 
 The .gitignore file excludes the source data directory and internal R files (.RData and .Rhistory).
@@ -32,4 +30,4 @@ The .gitignore file excludes the source data directory and internal R files (.RD
 
 The `run_analysis.R` sctipt includes an additional "Step 0" to download/extract the source data and place it in a separate `dataDir` which can be specified on line 17.
 
-
+One run, `run_analysis.R` will produce a `tidy_data_set.txt` file in the R working directory.
