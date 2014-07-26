@@ -1,4 +1,4 @@
-# Codebook for tidy_data.txt
+# Codebook for tidy_data_set.txt
 
 ## Source Data
 
@@ -24,7 +24,7 @@ The following description of the features comes from the original data source ab
 
 ### Feature List
 
-The output tidy_data_set.txt file will include for each Subject/Activity the mean of the following features:
+The output `tidy_data_set.txt` file will include for each Subject/Activity the mean of the following features:
 ```
 1. subjectId - subject ID of the measurement
 2. activityLabel - observed activity
