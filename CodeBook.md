@@ -115,10 +115,10 @@ Activity labels were combined in to the single data set.
 The following clean up on the features defined in the original dataset, `features.txt`, via `run_analysis.R`.
 
 1. features with invalid characters were updated:
-    1.1. parentheses we removed
-    1.1. hyphens and commas were replaced with a period
+    1. parentheses we removed
+    1. hyphens and commas were replaced with a period
 1. features with duplicate/incorrect names were updated:
-    1.1. "BodyBody" was replaced with "Body"
+    1. "BodyBody" was replaced with "Body"
 
 ### Feature Selection
 
