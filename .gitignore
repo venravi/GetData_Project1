@@ -1,5 +1,7 @@
-# ignore data directory
+# ignore data directory or data files within the working directory
 data/
+project1Data.zip
+UCI HAR Dataset/
 
 # ignore R files
 .RData

@@ -7,15 +7,15 @@
 #
 
 fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-dataDir <- "./data/"
+dataDir <- "./"
+dataSetDir <- paste0(dataDir, "UCI HAR Dataset/")
 
-if (!file.exists(dataDir)) {
-    dir.create(dataDir)
+if (!file.exists(dataSetDir)) {
     download.file(fileUrl, destfile = paste0(dataDir, "project1Data.zip"), method = "curl")
     unzip(paste0(dataDir, "project1Data.zip"), exdir = dataDir)
 }
 
-dataSetDir <- paste0(dataDir, "UCI HAR Dataset/")
+
 
 #####
 # Step 1: Merge the training and the test sets to create one data set
