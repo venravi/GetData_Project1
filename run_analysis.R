@@ -2,17 +2,10 @@
 #
 # https://github.com/a-drummond/GetData_Project1
 
-#You should create one R script called run_analysis.R that does the following.
-
-    #Merges the training and the test sets to create one data set.
-    #Extracts only the measurements on the mean and standard deviation for each measurement.
-    #Uses descriptive activity names to name the activities in the data set
-    #Appropriately labels the data set with descriptive variable names.
-    #Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-
 #####
 # Step 0: Setup - download data files and unzip files, if required
 #
+
 fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 dataDir <- "./data/"
 
@@ -74,13 +67,14 @@ combinedData <- rbind(trainingData, testData)
 #####
 # Step 2: Extract the mean/std features we are interested in (see Readme.md for justification of features selected)
 #
+
 # add in additional elements in the vector to cater for the subject and activity data at the start of the data frame
 focusFeatures <- c(TRUE, TRUE, focusFeatures)
 filteredData <- combinedData[,focusFeatures]
 
 #####
 # Step 3: Use descriptive activity names to name the activities in the data set
-#
+
 # Included in Step 1 above.
 
 #####
@@ -92,11 +86,14 @@ filteredData <- combinedData[,focusFeatures]
 #####
 # Step 5: Create an independent tidy data set with the average of each variable for each activity and each subject.
 
+# melt data set across all variables
 library(reshape2)
 idVars <- c("subjectId", "activityLabel")
 measureVars <- setdiff(names(filteredData), idVars)
 meltedDataSet <- melt(filteredData, id = idVars, measure.vars = measureVars)
 
+# cast dataset - mean across all the variables per subject/activity
 tidyDataSet <- dcast(meltedDataSet, subjectId + activityLabel ~ variable, mean)
 
+# output to a file
 write.table(tidyDataSet, file = "tidy_data_set.txt", quote = FALSE, col.names = TRUE, row.names = FALSE, sep = "\t")
