@@ -31,3 +31,8 @@ The .gitignore file excludes the source data directory and internal R files (.RD
 The `run_analysis.R` sctipt includes an additional "Step 0" to download/extract the source data and place it in a separate `dataDir` which can be specified on line 17.
 
 One run, `run_analysis.R` will produce a `tidy_data_set.txt` file in the R working directory.
+
+The resulting `tidy_data_set.txt` can be read in to R via the command:
+```
+read.table(file = "tidy_data_set.txt", header = TRUE, sep = "\t")
+```

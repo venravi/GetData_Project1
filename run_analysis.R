@@ -88,3 +88,15 @@ filteredData <- combinedData[,focusFeatures]
 #
 
 # Included in Step 1 above.
+
+#####
+# Step 5: Create an independent tidy data set with the average of each variable for each activity and each subject.
+
+library(reshape2)
+idVars <- c("subjectId", "activityLabel")
+measureVars <- setdiff(names(filteredData), idVars)
+meltedDataSet <- melt(filteredData, id = idVars, measure.vars = measureVars)
+
+tidyDataSet <- dcast(meltedDataSet, subjectId + activityLabel ~ variable, mean)
+
+write.table(tidyDataSet, file = "tidy_data_set.txt", quote = FALSE, col.names = TRUE, row.names = FALSE, sep = "\t")
