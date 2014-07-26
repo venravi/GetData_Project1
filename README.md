@@ -24,7 +24,7 @@ The main R script file that process the data. The file is structured to meet the
 
 ### .gitignore
 
-The .gitignore file excludes the source data directory and internal R files (.RData and .Rhistory).
+The `.gitignore` file excludes the source data directory, internal R files (`.RData` and `.Rhistory`) and the output `tidy_data_set.txt` file.
 
 ## Setup and Execution
 

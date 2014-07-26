@@ -4,3 +4,6 @@ data/
 # ignore R files
 .RData
 .Rhistory
+
+# ignore output file
+tidy_data_set.txt
