@@ -28,7 +28,7 @@ The `.gitignore` file excludes the source data directory, internal R files (`.RD
 
 ## Setup and Execution
 
-The `run_analysis.R` sctipt includes an additional "Step 0" to download/extract the source data and place it in a separate `dataDir` which can be specified on line 17.
+The `run_analysis.R` sctipt includes an additional "Step 0" to download/extract the source data and place it in a separate `dataDir` which can be specified on line 17. However, as per the submission instructions, the script is to assume the data files are available in the working directory, rather than a separate `data/` directory. The script will check for both scenarios.
 
 One run, `run_analysis.R` will produce a `tidy_data_set.txt` file in the R working directory.
 
