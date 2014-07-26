@@ -30,9 +30,12 @@ dataSetDir <- paste0(dataDir, "UCI HAR Dataset/")
 # read in features names
 features <- read.table(paste0(dataSetDir, "features.txt"))[,2]
 
+# get logical vector for the features we are interested in for Step #2 (see below for more details)
+focusFeatures <- grepl("-(mean|std)\\(\\)", features)
+
 # clean up features names (as read.table(check.names=T) doesn't seem to fix them/thow any warnings)
-features <- gsub("[()-]", "", features)
-features <- gsub(",", "-", features)
+features <- gsub("[()]", "", features)
+features <- gsub("[-,]", ".", features)
 
 # read in activity names
 activities <- read.table(paste0(dataSetDir, "activity_labels.txt"), col.names = c("activityId", "activityLabel"))
@@ -66,3 +69,10 @@ testData <- cbind(subjectTestData, yTestData, xTestData)
 
 
 combinedData <- rbind(trainingData, testData)
+
+#####
+# Step 2: Extract the mean/std features we are interested in (see Readme.md for justification of features selected)
+#
+# add in additional elements in the vector to cater for the subject and activity data at the start of the data frame
+focusFeatures <- c(TRUE, TRUE, focusFeatures)
+filteredData <- combinedData[,focusFeatures]
